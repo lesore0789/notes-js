@@ -1,5 +1,17 @@
 import NotesAPI from "./NotesAPI.js";
+import NotesView from "./NotesView.js";
 
-NotesAPI.deleteNote(160250);
+const app = document.getElementById("app");
 
-console.log(NotesAPI.getAllNotes());
+const view = new NotesView(app, {
+  onNoteAdd() {
+    console.log("Lets add a new note");
+  },
+
+  onNoteEdit(newTitle, newBody) {
+    console.log(newTitle);
+    console.log(newBody);
+  },
+});
+
+view.updateNoteList(NotesAPI.getAllNotes());
