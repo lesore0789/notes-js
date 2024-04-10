@@ -6,7 +6,7 @@ export default class NotesAPI {
       return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
     });
   }
-  static saveNotes(noteToSave) {
+  static saveNote(noteToSave) {
     const notes = NotesAPI.getAllNotes();
     const existing = notes.find((note) => note.id == noteToSave.id);
 
